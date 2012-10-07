@@ -7,7 +7,7 @@ require("beautiful")
 -- Notification library
 require("naughty")
 require("revelation")
---require("window_switch")
+require("window_switch")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -36,8 +36,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
---beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init( awful.util.getdir("config") .. "/themes/awesome-solarized/dark/theme.lua" )
+--beautiful.init("/usr/share/awesome/themes/wombat/theme.lua")
+beautiful.init( awful.util.getdir("config") .. "/themes/tomorrownightblue/theme.lua" )
+--beautiful.init( awful.util.getdir("config") .. "/themes/awesome-solarized/dark/theme.lua" )
 
 
 -- This is used later as the default terminal and editor to run.
@@ -232,23 +233,18 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
 								  "' -sf '" .. beautiful.fg_focus .. "'")
 							  end),
 
-							  --[[ awful.key({ modkey },            "b",     function ()]]
-							  --window_switch.select_window("-i -l 10 -nb '" ..
-							  --beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal ..
-							  --"' -sb '" .. beautiful.bg_focus ..
-							  --"' -sf '" .. beautiful.fg_focus .. "'")
-							  --end),
+							  awful.key({ modkey },            "s",     function ()
+								  window_switch.select_window("-i -l 10 -nb '" ..
+								  beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal ..
+								  "' -sb '" .. beautiful.bg_focus ..
+								  "' -sf '" .. beautiful.fg_focus .. "'")
+							  end),
 
 
 
 
 							  awful.key({ modkey,           }, "h",   awful.tag.viewprev       ),
 							  awful.key({ modkey,           }, "l",  awful.tag.viewnext       ),
-
-
-							  awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
-							  awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
-							  awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
 							  awful.key({ modkey,           }, "j",
 							  function ()
@@ -260,6 +256,32 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
 								  awful.client.focus.byidx(-1)
 								  if client.focus then client.focus:raise() end
 							  end),
+
+							  awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
+							  awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
+							  awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+
+							  --awful.key({ modkey,           }, "j",
+							  --function ()
+								  --awful.client.focus.bydirection("down")
+								  --if client.focus then client.focus:raise() end
+							  --end),
+							  --awful.key({ modkey,           }, "k",
+							  --function ()
+								  --awful.client.focus.bydirection("up")
+								  --if client.focus then client.focus:raise() end
+							  --end),
+							  --awful.key({ modkey,           }, "h",
+							  --function ()
+								  --awful.client.focus.bydirection("left")
+								  --if client.focus then client.focus:raise() end
+							  --end),
+							  --awful.key({ modkey,           }, "l",
+							  --function ()
+								  --awful.client.focus.bydirection("right")
+								  --if client.focus then client.focus:raise() end
+							  --end),
+							  
 							  awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
 							  -- Layout manipulation
@@ -384,6 +406,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
 								  border_color = beautiful.border_normal,
 								  focus = true,
 								  keys = clientkeys,
+								  size_hints_honor = false,
 								  buttons = clientbuttons } },
 								  { rule = { class = "MPlayer" },
 								  properties = { floating = true } },
