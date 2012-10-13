@@ -6,7 +6,6 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-require("revelation")
 require("window_switch")
 
 -- {{{ Error handling
@@ -36,7 +35,6 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
---beautiful.init("/usr/share/awesome/themes/wombat/theme.lua")
 beautiful.init( awful.util.getdir("config") .. "/themes/tomorrownightbright/theme.lua" )
 --beautiful.init( awful.util.getdir("config") .. "/themes/awesome-solarized/dark/theme.lua" )
 
@@ -475,4 +473,4 @@ layouts =
 
 
    -- Autostart
-   awful.util.spawn_with_shell("/home/suem/scripts/autostart.sh")
+   awful.util.spawn_with_shell("/home/suem/.dotfiles/autostart.sh")
