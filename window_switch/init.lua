@@ -27,6 +27,8 @@ function raise_client(name, class)
       if c.name == name and c.class == class then
          io.stderr:write("match:\n")
          for i, v in ipairs(c:tags()) do
+
+            awful.client.focus.history.add(awful.client.focus.history.get(c.screen,0))
             awful.tag.viewonly(v)
             c.minimized = false
             client.focus = c
@@ -40,7 +42,8 @@ end
 
 function get_clients()
    local clients = {}
-   for c in awful.client.cycle(function(x) return true end) do
+   -- for c in awful.client.cycle(function(x) return true end) do
+   for k, c in pairs(awful.client.visible()) do
       local value ={}
       value[0]=c.class
       value[1]=c.name
