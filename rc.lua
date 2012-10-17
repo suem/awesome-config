@@ -36,7 +36,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init( awful.util.getdir("config") .. "/themes/tomorrownightbright/theme.lua" )
+beautiful.init( awful.util.getdir("config") .. "/themes/solarized-light/theme.lua" )
 --beautiful.init( awful.util.getdir("config") .. "/themes/awesome-solarized/dark/theme.lua" )
 
 
