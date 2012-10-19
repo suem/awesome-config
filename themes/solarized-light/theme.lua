@@ -36,7 +36,7 @@ theme.fg_urgent     = theme.colors.base3
 theme.fg_minimize   = theme.colors.base3 
 
 theme.border_width  = "1"
-theme.border_normal = theme.colors.base3 
+theme.border_normal = theme.colors.base2 
 
 theme.border_focus  = theme.colors.base01 
 theme.border_marked = "#373b41"
