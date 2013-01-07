@@ -1,3 +1,4 @@
+local myawful = require("myawful")
 local awful = require('awful')
 local io = io
 local client = client
@@ -42,12 +43,13 @@ end
 
 function get_clients()
    local clients = {}
-   -- for c in awful.client.cycle(function(x) return true end) do
-   for k, c in pairs(awful.client.visible()) do
+   -- for c in myawful.cycle_focus(true) do
+   -- for k, c in pairs(awful.client.visible()) do
+   for k, c in pairs(myawful.focus.history.clients()) do
       local value ={}
       value[0]=c.class
       value[1]=c.name
-      clients[c.class .. " | ".. c.name] = value
+      clients[k .. c.class .. " | ".. c.name] = value
    end
    return clients
 end
@@ -55,7 +57,7 @@ end
 function get_dmenu_selection(options, dmenu_args)
    dmenu_args = dmenu_args or ""
    local dmenu_command = io.popen('dmenu ' .. dmenu_args ..' > /tmp/command', 'w')
-
+   -- Todo sort items
    for k,v in pairs(options) do
       dmenu_command:write(k.."\n")
    end

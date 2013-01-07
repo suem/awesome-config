@@ -173,6 +173,10 @@ local capi =
       end
    end
 
+   function focus.history.clients()
+      return data.focus
+   end
+   
    --- Focus the previous client in history.
    function focus.history.previous()
       local sel = capi.client.focus
@@ -403,6 +407,10 @@ local capi =
             end
          end
       end
+   end
+
+   function getdatafocus()
+      return data.focus 
    end
 
    --- Get the master window.

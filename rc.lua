@@ -227,7 +227,7 @@ layouts =
 
 
       awful.key({ modkey },            "a",     function ()
-                   awful.util.spawn("/home/suem/scripts/dmenu-xdg -i -l 10 -nb '"  ..
+                   awful.util.spawn("/home/suem/scripts/windowswitch/dmenu-xdg -i -l 10 -nb '"  ..
                                     beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal ..
                                     "' -sb '" .. beautiful.bg_focus ..
                                     "' -sf '" .. beautiful.fg_focus .. "'")
@@ -243,7 +243,7 @@ layouts =
 
 
       awful.key({ modkey , "Shift" },            "d",     function ()
-                   awful.util.spawn("ruby /home/suem/scripts/windowswitch/autojump.rb 'exo-open ' -i -l 10 -nb '" ..
+                   awful.util.spawn("ruby /home/suem/scripts/windowswitch/autojump.rb 'urxvt -e ranger ' -i -l 10 -nb '" ..
                                     beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal ..
                                     "' -sb '" .. beautiful.bg_focus ..
                                     "' -sf '" .. beautiful.fg_focus .. "'")
@@ -317,7 +317,7 @@ layouts =
       -- Standard program
       --awful.key({ modkey, "Control" }, "r", awesome.restart),
       awful.key({ modkey,           }, "t", function () awful.util.spawn(terminal) end),
-      awful.key({ modkey,           }, "e", function () awful.util.spawn("nautilus") end),
+      awful.key({ modkey,           }, "e", function () awful.util.spawn("urxvt -e ranger") end),
 
       --awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
